@@ -93,6 +93,7 @@ const Chart = () => {
     html2canvas(input!).then((canvas) => {
       const ctx = canvas.getContext("2d");
       if (ctx) {
+        console.log("Downloading image with watermark");
         // Set watermark text properties
         ctx.font = "50px Arial";
         ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
@@ -106,6 +107,8 @@ const Chart = () => {
 
         // Draw the watermark text
         ctx.fillText(text, x, y);
+      }else{
+        console.log("Downloading image without watermark");
       }
       // Use optional chaining to ensure input is not null
       const imgData = canvas.toDataURL("image/jpeg");
